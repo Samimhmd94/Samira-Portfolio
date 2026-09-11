@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سمیرا محمدی — کارشناس ارشد محتوا و UX Writer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --border: #EBEBEB;
+  --text: #111111;
+  --text-2: #555555;
+  --text-3: #999999;
+  --accent: #2D5BE3;
+  --accent-light: #F0F4FF;
+  --tag-border: #C8D7FF;
+  --red: #D93025;
+  --green: #1A7A4A;
+  --radius: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.8;
+  direction: rtl;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── Layout ─── */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ─── Nav ─── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,250,250,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* ─── Hero ─── */
+.hero {
+  padding: 72px 0 56px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-left h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.hero-left .title {
+  font-size: 15px;
+  color: var(--text-2);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item {
+  font-size: 13px;
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contact-item a {
+  color: var(--text-2);
+}
+
+.hero-right p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.9;
+}
+
+/* ─── Section ─── */
+.section {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-child { border-bottom: none; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* ─── Skills ─── */
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-group {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.skill-group-label {
+  font-size: 12px;
+  color: var(--text-3);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: var(--accent-light);
+  border: 1px solid var(--tag-border);
+  color: var(--accent);
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* ─── Timeline ─── */
+.timeline {
+  display: flex;
+  gap: 0;
+  position: relative;
+  margin-top: 8px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding-top: 32px;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.timeline-year {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-bottom: 4px;
+}
+
+.timeline-company {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ─── Articles ─── */
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.article-group h4 {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.article-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.article-list li a {
+  font-size: 13px;
+  color: var(--text-2);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.5;
+}
+
+.article-list li a::before {
+  content: '←';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.article-list li a:hover { color: var(--accent); text-decoration: none; }
+
+/* ─── Project Cards ─── */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.15;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-header {
+  padding: 28px 28px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-num {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.project-desc {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tag {
+  font-size: 11px;
+  color: var(--text-3);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+
+.project-body {
+  padding: 24px 28px;
+}
+
+.project-section {
+  margin-bottom: 28px;
+}
+
+.project-section:last-child { margin-bottom: 0; }
+
+.project-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.project-section p {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.85;
+  margin-bottom: 10px;
+}
+
+.project-section p:last-child { margin-bottom: 0; }
+
+/* Role list */
+.role-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.role-list li {
+  font-size: 13px;
+  color: var(--text-2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.role-list li::before {
+  content: '—';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+/* Findings */
+.findings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.finding-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.finding-item p {
+  font-size: 12.5px;
+  color: var(--text-2);
+  margin: 0;
+}
+
+/* Before/After */
+.ba-block {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.ba-title {
+  background: var(--bg);
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.ba-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ba-before, .ba-after {
+  padding: 14px 16px;
+  font-size: 12.5px;
+  line-height: 1.8;
+}
+
+.ba-before {
+  border-left: 1px solid var(--border);
+  background: #FFF8F8;
+}
+
+.ba-after {
+  background: #F6FBF7;
+}
+
+.ba-label {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.ba-before .ba-label { color: var(--red); }
+.ba-after .ba-label { color: var(--green); }
+
+.ba-text {
+  color: var(--text-2);
+}
+
+.ba-reason {
+  background: var(--accent-light);
+  border-top: 1px solid var(--tag-border);
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #1a3a9e;
+  line-height: 1.7;
+}
+
+/* Principles */
+.principles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.principle {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.principle-num {
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.principle p {
+  font-size: 13px;
+  color: var(--text-2);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.principle strong { color: var(--text); }
+
+/* Archetype cards */
+.archetype-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.arch-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  border-top: 3px solid var(--accent);
+}
+
+.arch-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.arch-card p {
+  font-size: 12px;
+  color: var(--text-2);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Research table */
+.research-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 4px;
+}
+
+.research-table th {
+  text-align: right;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-weight: 600;
+  color: var(--text-2);
+  font-size: 12px;
+}
+
+.research-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+.research-table tr:nth-child(even) td { background: var(--bg); }
+
+/* Persona cards */
+.persona-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.persona-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.persona-card-header {
+  background: var(--accent);
+  color: white;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.persona-card-body {
+  padding: 14px 16px;
+}
+
+.persona-card-body p {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-bottom: 10px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.priority-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.priority-list li {
+  font-size: 12px;
+  color: var(--text-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.priority-list li:last-child { border-bottom: none; }
+
+.priority-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.p1 { background: #FEE2E2; color: #991B1B; }
+.p2 { background: #FEF3C7; color: #92400E; }
+
+/* Learnings */
+.learnings {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 4px;
+}
+
+.learning-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.learning-item:last-child { margin-bottom: 0; }
+
+.learning-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.learning-item p {
+  font-size: 13px;
+  color: var(--text-2);
+  margin: 0;
+  line-height: 1.75;
+}
+
+/* Note */
+.project-note {
+  font-size: 12px;
+  color: var(--text-3);
+  font-style: italic;
+  margin-top: 4px;
+  margin-bottom: 0 !important;
+}
+
+/* Output box */
+.output-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-right: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.8;
+}
+
+/* Footer */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-left h1 { font-size: 30px; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .findings { grid-template-columns: 1fr; }
+  .archetype-row { grid-template-columns: 1fr; }
+  .ba-cols { grid-template-columns: 1fr; }
+  .ba-before { border-left: none; border-bottom: 1px solid var(--border); }
+  .persona-grid { grid-template-columns: 1fr; }
+  .timeline { flex-direction: column; gap: 16px; }
+  .timeline::before { display: none; }
+  .timeline-item { padding-top: 0; padding-right: 20px; text-align: right; }
+  .timeline-dot { display: none; }
+  nav { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">سمیرا محمدی</span>
+    <ul class="nav-links">
+      <li><a href="#about">درباره من</a></li>
+      <li><a href="#projects">پروژه‌ها</a></li>
+      <li><a href="#articles">مقالات</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="container">
+  <section class="hero" id="about">
+    <div class="hero-grid">
+      <div class="hero-left">
+  <img src="Assets/Samira.jpg" alt="سمیرا محمدی" 
+       style="width:110px;height:110px;border-radius:50%;
+              object-fit:cover;margin-bottom:16px;
+              border:2px solid #EBEBEB">
+        <h1>سمیرا محمدی</h1>
+        <p class="title">کارشناس ارشد محتوا و UX Writer</p>
+        <div class="contact-row">
+          <span class="contact-item">📧 <a href="mailto:">samxavi19@gmail.com</a></span>
+          <span class="contact-item">💼 <a href="https://www.linkedin.com/in/samira-mohammadi-/">LinkedIn</a></span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <p>کارشناس محتوا با بیش از ۵ سال تجربه در تولید و استراتژی محتوای دیجیتال در حوزه‌های فناوری، هوش مصنوعی و بازار سرمایه.</p>
+        <p>در سال‌های اخیر علاوه بر تولید محتوای بلاگ و شبکه‌های اجتماعی، در پروژه‌های محصول‌محور، UX Writing، تحلیل رقبا، پژوهش کاربر و طراحی ساختار محتوا فعالیت داشته‌ام و تجربه همکاری نزدیک با تیم‌های محصول، طراحی و استراتژی را کسب کرده‌ام.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <div class="section-label">مهارت‌ها</div>
+    <div class="skills-groups">
+      <div class="skill-group">
+        <span class="skill-group-label">محتوا و سئو</span>
+        <div class="tags">
+          <span class="tag">Content Writing</span>
+          <span class="tag">SEO Content</span>
+          <span class="tag">Keyword Research</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Content Strategy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">UX Writing</span>
+        <div class="tags">
+          <span class="tag">UX Writing</span>
+          <span class="tag">Microcopy</span>
+          <span class="tag">Content Design</span>
+          <span class="tag">User Flow Analysis</span>
+          <span class="tag">Brand Voice</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">پژوهش و ابزارها</span>
+        <div class="tags">
+          <span class="tag">User Research</span>
+          <span class="tag">Competitor Analysis</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Google Search Console</span>
+          <span class="tag">ChatGPT</span>
+          <span class="tag">Claude</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="section-label">سابقه کاری</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">۱۳۹۹</div>
+        <div class="timeline-company">سلام ساختمان</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">۱۴۰۱</div>
+        <div class="timeline-company">سیناپردازش</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">۱۴۰۲</div>
+        <div class="timeline-company">آژانس وبنا<br><small style="font-weight:400;color:#999">سرپرست تیم</small></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">۱۴۰۳</div>
+        <div class="timeline-company">کارگزاری آگاه</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:#2D5BE3;box-shadow:0 0 0 3px #C8D7FF"></div>
+        <div class="timeline-year">۱۴۰۳ — اکنون</div>
+        <div class="timeline-company">ویستا سامانه آسا</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="section" id="articles">
+    <div class="section-label">نمونه مقالات</div>
+    <div class="articles-grid">
+      <div class="article-group">
+        <h4>هوش مصنوعی — آسا</h4>
+        <ul class="article-list">
+          <li><a href="https://blog.asax.ir/artificial-intelligence/ollama/" target="_blank">Ollama چیست؟</a></li>
+          <li><a href="https://blog.asax.ir/artificial-intelligence/fine-tuning/" target="_blank">Fine-Tuning مدل‌های زبانی</a></li>
+          <li><a href="https://blog.asax.ir/artificial-intelligence/grok-3/" target="_blank">Grok 3 چیست؟</a></li>
+        </ul>
+      </div>
+      <div class="article-group">
+        <h4>بازار سرمایه — آگاه</h4>
+        <ul class="article-list">
+          <li><a href="https://pedia.agah.com/article/modern-portfolio-theory" target="_blank">نظریه مدرن سبد سهام</a></li>
+          <li><a href="https://pedia.agah.com/article/behavioral-economy" target="_blank">اقتصاد رفتاری چیست؟</a></li>
+        </ul>
+      </div>
+      <div class="article-group">
+        <h4>فناوری — سیناپردازش</h4>
+        <ul class="article-list">
+          <li><a href="https://www.sinapardazesh.ir/%d8%ab%d8%a8%d8%aa-%d8%af%db%8c%d8%ac%db%8c%d8%aa%d8%a7%d9%84-%d8%a7%d8%b7%d9%84%d8%a7%d8%b9%d8%a7%d8%aa-%d8%a8%db%8c%d9%85%d8%a7%d8%b1%d8%a7%d9%86/" target="_blank">ثبت دیجیتال اطلاعات بیماران</a></li>
+          <li><a href="https://www.sinapardazesh.ir/%da%a9%d8%af-%d8%a7%d9%82%d8%aa%d8%b5%d8%a7%d8%af%db%8c-%db%8c%d8%a7-%d8%b4%d9%86%d8%a7%d8%b3%d9%87-%d9%85%d9%84%db%8c%d8%9f/" target="_blank">کد اقتصادی یا شناسه ملی؟</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-label">پروژه‌ها</div>
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">پروژه ۰۱</div>
+        <h2 class="project-title">مسیر یادگیری مهندسی هوش مصنوعی</h2>
+        <p class="project-desc">طراحی یک محصول محتوایی ساختاریافته برای کاربران فارسی‌زبانی که می‌خواهند وارد حوزه هوش مصنوعی شوند؛از پروپوزال اولیه تا انتشار بیش از ۱۶۰ مقاله آموزشی.</p>
+        <div class="project-tags">
+          <span class="project-tag">Content Strategy</span>
+          <span class="project-tag">Content Design</span>
+          <span class="project-tag">Information Architecture</span>
+          <span class="project-tag">UX Writing</span>
+          <span class="project-tag">Research</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-section">
+          <div class="project-section-title">چالش</div>
+          <p>کاربران فارسی‌زبان برای ورود به حوزه هوش مصنوعی با منابع پراکنده و مسیرهای یادگیری نامنسجم مواجه بودند. هدف پروژه طراحی یک مسیر یادگیری ساختاریافته و بومی‌سازی‌شده بود تا سازمان بتواند از آن به‌عنوان ابزار راهبردی برای جذب و پرورش استعدادها استفاده کند.</p>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">نقش من</div>
+          <ul class="role-list">
+            <li>تهیه پروپوزال اولیه پروژه</li>
+            <li>تحلیل نمونه‌های داخلی و خارجی</li>
+            <li>طراحی ساختار مسیر یادگیری و نقشه راه محتوا</li>
+            <li>بومی‌سازی و تولید حدود ۷۰٪ محتواها</li>
+            <li>انتشار بیش از ۱۶۰ مقاله آموزشی ساختاریافته</li>
+            <li>همکاری با تیم طراحی و توسعه برای پیاده‌سازی محصول</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">خروجی</div>
+          <div class="output-box">
+            یک محصول محتوایی کامل شامل لندینگ اصلی، مسیر یادگیری مهندسی هوش مصنوعی و بیش از ۱۶۰ محتوای آموزشی ساختاریافته.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">پروژه ۰۲</div>
+        <h2 class="project-title">گل‌نگار — طراحی برند و UX Writing</h2>
+        <p class="project-desc">طراحی هویت کلامی برند و تجربه‌ای یکپارچه در تمام نقاط تماس کاربر؛از نخستین مواجهه با برند تا وضعیت‌های مختلف سیستم.</p>
+        <div class="project-tags">
+          <span class="project-tag">UX Writing</span>
+          <span class="project-tag">Brand Voice</span>
+          <span class="project-tag">Tone of Voice</span>
+          <span class="project-tag">Microcopy</span>
+          <span class="project-tag">Content Design</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-section">
+          <div class="project-section-title">چالش</div>
+          <p>فروش گل تجربه‌ای احساسی است؛ هدیه دادن، ابراز محبت، جشن گرفتن. اما اکثر پلتفرم‌های مشابه با لحنی خشک و تجاری صحبت می‌کنند. سوال اصلی این بود: چطور می‌توان یک پلتفرم گل‌فروشی را از طریق زبان، «همراه و همدل» احساس کرد؟</p>
+          <p class="project-note">این پروژه به‌صورت تمرین آموزشی انجام شده است.</p>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">آرکتایپ برند</div>
+          <div class="archetype-row">
+            <div class="arch-card">
+              <h4>Lover — هسته اصلی</h4>
+              <p>زیبایی، لطافت، خلق لحظه‌های خوش. برند گل را به‌عنوان تجربه‌ای احساسی تعریف می‌کند.</p>
+            </div>
+            <div class="arch-card">
+              <h4>Caregiver</h4>
+              <p>همراهی، پشتیبانی، اعتماد. تاکید بر ساختن لحظه‌های خوش برای خود یا دیگران.</p>
+            </div>
+            <div class="arch-card">
+              <h4>Creator</h4>
+              <p>نگاه هنرمندانه، خلاقیت در ارائه محصول. برند را از یک فروشگاه ساده فراتر می‌برد.</p>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <p style="font-size:13px;color:var(--text-2)">لحن برند بر سه اصل تعریف شد: <strong>صمیمیت کنترل‌شده</strong> / <strong>همدلی به‌جای رفاقت</strong> / <strong>احساس واقعی بدون اغراق</strong></p>
+            <p style="font-size:13px;color:var(--text-2);margin-top:8px">پیام محوری: کاربر دنبال «گل» نیست، دنبال راهی ساده برای خوشحال‌کردن دیگران است.</p>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">نمونه خروجی‌ها</div>
+
+          <div class="project-body">
+  <img src="Assets/01.jpg" alt="هیروسکشن-گل‌نگار"
+       style="width:100%;border-radius:8px;
+              margin-bottom:24px;
+              border:1px solid #EBEBEB">
+          <div class="ba-block">
+            <div class="ba-title">Hero Section</div>
+            <div class="ba-cols">
+              <div class="ba-before">
+                <span class="ba-label">✕ لحن معمول رقبا</span>
+                <div class="ba-text">خرید گل آنلاین — بهترین گل‌های تازه را از ما بخرید. ارسال سریع در سراسر کشور.</div>
+              </div>
+              <div class="ba-after">
+                <span class="ba-label">✓ گل‌نگار</span>
+                <div class="ba-text">گل‌فروشی آنلاین برای حال خوب<br>خرید گل آنلاین، راحت و بی‌دردسر؛ فقط انتخاب کن، بقیش با ما.</div>
+              </div>
+            </div>
+            <div class="ba-reason">«حال خوب» یک احساس است، نه یک ویژگی محصول. «بقیش با ما» مسئولیت را از کاربر برمی‌دارد. کاهش استرس برای کسی که می‌خواهد هدیه بدهد.</div>
+          </div>
+
+          <div class="project-body">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:20px;align-items:start;margin-bottom:24px">
+    <img src="Assets/04.jpg" alt="صفحه خالی"
+         style="width:100%;border-radius:8px;border:1px solid #EBEBEB">
+    <div class="ba-block">
+      <div class="ba-title">Empty State — کارت هدیه</div>
+      <div class="ba-cols">
+        <div class="ba-before">
+          <span class="ba-label">✕ معمول</span>
+          <div class="ba-text">هیچ کارت هدیه‌ای وجود ندارد.</div>
+        </div>
+        <div class="ba-after">
+          <span class="ba-label">✓ گل‌نگار</span>
+          <div class="ba-text">هنوز اعتباری هدیه ندادی!<br>به‌جای انتخاب گل، اعتبار هدیه بده؛ تا خودش هرچی دوست داشت انتخاب کنه. سریع، آنلاین و بی‌دردسر.</div>
+        </div>
+      </div>
+      <div class="ba-reason">Empty state مزیت محصول را نشان می‌دهد، نه فقط وضعیت خالی را. کاربر دعوت به اقدام می‌شود نه اینکه صرفاً متوجه فقدان شود.</div>
+    </div>
+  </div>
+
+          <div class="project-body">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:20px;align-items:start;margin-bottom:24px">
+    <img src="Assets/05.jpg" alt="خطای-قطعی-اینترنت"
+         style="width:100%;border-radius:8px;border:1px solid #EBEBEB">
+    <div class="ba-block">
+      <div class="ba-title">Error State — قطعی اینترنت</div>
+      <div class="ba-cols">
+        <div class="ba-before">
+          <span class="ba-label">✕ معمول</span>
+          <div class="ba-text">خطا در اتصال به اینترنت.</div>
+        </div>
+        <div class="ba-after">
+          <span class="ba-label">✓ گل‌نگار</span>
+          <div class="ba-text">اینترنتت قطع شده<br>ارتباطمون قطع شده. لطفاً به اینترنت وصل شو و برگرد.<br><strong>دوباره تلاش کن</strong></div>
+        </div>
+      </div>
+      <div class="ba-reason">لحن صمیمی حتی در وضعیت خطا حفظ می‌شود. پیام شفاف است، بدون اتهام به کاربر، با راه‌حل مشخص.</div>
+    </div>
+  </div>
+</div>
+
+        <div class="project-section">
+          <div class="project-section-title">آموخته‌ها</div>
+          <div class="learnings">
+            <div class="learning-item">
+              <div class="learning-dot"></div>
+              <p>آرکتایپ ابزار تصمیم است. وقتی سر یک کلمه شک داشتم، کافی بود بپرسم «آیا این با شخصیت Caregiver همخوان است؟»</p>
+            </div>
+            <div class="learning-item">
+              <div class="learning-dot"></div>
+              <p>تفاوت لحن در جزئیات است؛ یک علامت تعجب، یک «ت» در «سفارشت»، یک کلمه دوستانه به جای اداری.</p>
+            </div>
+            <div class="learning-item">
+              <div class="learning-dot"></div>
+              <p>UX Writing خوب نامرئی است. کاربر آن را نمی‌بیند، فقط «خرید آسان» احساس می‌کند.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">پروژه ۰۳</div>
+        <h2 class="project-title">آگاه کراد؛ از پژوهش تا بازطراحی محتوای محصول</h2>
+        <p class="project-desc">بررسی تجربه محتوایی کاربران در پلتفرم‌های تامین مالی جمعی و ارائه پیشنهادهای بهبود برای آگاه کراد در دو فاز: پژوهش کاربران و ارزیابی محصول.</p>
+        <div class="project-tags">
+          <span class="project-tag">User Research</span>
+          <span class="project-tag">UX Writing</span>
+          <span class="project-tag">Competitor Analysis</span>
+          <span class="project-tag">Microcopy</span>
+          <span class="project-tag">Content Design</span>
+        </div>
+      </div>
+      <div class="project-body">
+
+        <div class="project-section">
+          <div class="project-section-title">فاز ۱ — پژوهش کاربران</div>
+          <p>قبل از هر پیشنهاد محتوایی، یک فاز تحقیق انجام شد تا مطمئن شوم تصمیمات محتوایی مبتنی بر رفتار واقعی کاربر باشند، نه حدس.</p>
+
+          <div style="margin-top:16px">
+            <p style="font-size:12px;color:var(--text-3);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:1px">مطالعات کتابخانه‌ای — ۱۱ منبع</p>
+            <table class="research-table">
+              <thead>
+                <tr>
+                  <th>منبع</th>
+                  <th>یافته کلیدی</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Crowdfunding scientific research — user research</td>
+                  <td>نیازها و ترجیحات کاربران در تامین مالی جمعی</td>
+                </tr>
+                <tr>
+                  <td>User Behavior in Crowdfunding — Switzerland</td>
+                  <td>پروژه‌هایی که ۲۴-۷۲ ساعت اول ۲۰-۳۰٪ بودجه جذب کنند، چند برابر شانس موفقیت دارند</td>
+                </tr>
+                <tr>
+                  <td>چارچوبی برای کارزارهای موفق تامین مالی</td>
+                  <td>عوامل موفقیت برای کارآفرینان ایرانی</td>
+                </tr>
+                <tr>
+                  <td>شناسایی عوامل موثر بر موفقیت کمپین</td>
+                  <td>عوامل فردی، محیطی و پروژه‌ای موثر بر نرخ موفقیت</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:20px">
+            <p style="font-size:12px;color:var(--text-3);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px">پرسوناها و اولویت‌بندی خوشه‌ها</p>
+            <div class="persona-grid">
+              <div class="persona-card">
+                <div class="persona-card-header">پرسونا ۱: سرمایه‌گذار</div>
+                <div class="persona-card-body">
+                  <p>«درک عمیق رفتار، نیازها، ترس‌ها و معیارهای تصمیم‌گیری کاربران»</p>
+                  <ul class="priority-list">
+                    <li>رفتار تصمیم‌گیری و ارزیابی <span class="priority-badge p1">اولویت ۱</span></li>
+                    <li>تجربه کاربری و نقاط درد <span class="priority-badge p1">اولویت ۱</span></li>
+                    <li>اعتماد و شناخت اولیه <span class="priority-badge p2">اولویت ۲</span></li>
+                    <li>انگیزه‌ها و محرک‌ها <span class="priority-badge p2">اولویت ۲</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="persona-card">
+                <div class="persona-card-header">پرسونا ۲: سرمایه‌پذیر</div>
+                <div class="persona-card-body">
+                  <p>«تأمین سریع، قابل‌اعتماد و شفاف سرمایه برای اجرای پروژه»</p>
+                  <ul class="priority-list">
+                    <li>نیازها و چالش‌های اصلی <span class="priority-badge p1">اولویت ۱</span></li>
+                    <li>ارائه پروژه و تولید محتوا <span class="priority-badge p1">اولویت ۱</span></li>
+                    <li>مدیریت کمپین <span class="priority-badge p2">اولویت ۲</span></li>
+                    <li>انتظارات از پلتفرم <span class="priority-badge p2">اولویت ۲</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">یافته‌های کلیدی پژوهش</div>
+          <div class="findings">
+            <div class="finding-item">
+              <p>کاربران تازه‌وارد پیش از تصمیم‌گیری به سیگنال‌های اعتماد مانند تعداد سرمایه‌گذاران توجه می‌کنند.</p>
+            </div>
+            <div class="finding-item">
+              <p>هرگونه ابهام در اصطلاحات تخصصی می‌تواند فرایند سرمایه‌گذاری را کاملاً متوقف کند.</p>
+            </div>
+            <div class="finding-item">
+              <p>زبان رسمی و فنی فاصله ذهنی کاربر با محصول را افزایش می‌دهد.</p>
+            </div>
+            <div class="finding-item">
+              <p>کاربران هنگام ارزیابی فرصت‌ها به دنبال شفافیت، سادگی و اطمینان هستند.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">فاز ۲ — ارزیابی محصول و پیشنهاد UX Writing</div>
+          <p>۹ صفحه کلیدی محصول بررسی شد. برای هر پیشنهاد، ابتدا ایراد موجود توضیح داده شد، سپس بازنویسی با استدلال UX ارائه گردید.</p>
+
+          <div style="margin-top:4px;margin-bottom:12px">
+            <div class="principles">
+              <div class="principle">
+                <div class="principle-num">۱</div>
+                <p><strong>وضوح قبل از هر چیز:</strong> هر اصطلاح نامأنوس می‌تواند جریان تصمیم‌گیری کاربر را متوقف کند.</p>
+              </div>
+              <div class="principle">
+                <div class="principle-num">۲</div>
+                <p><strong>اعتماد قبل از اقدام:</strong> کاربران پیش از سرمایه‌گذاری به دنبال نشانه‌های اعتبار و امنیت هستند.</p>
+              </div>
+              <div class="principle">
+                <div class="principle-num">۳</div>
+                <p><strong>زبان کاربر، نه زبان سیستم:</strong> واژگان باید با مدل ذهنی کاربران همسو باشند، نه با ادبیات فنی سازمان.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-body">
+  <img src="Assets/06.png" alt="هیروسکشن-آگاه-کراد"
+       style="width:100%;border-radius:8px;
+              margin-bottom:24px;
+              border:1px solid #EBEBEB">
+          <div class="ba-block">
+            <div class="ba-title">Hero Section — صفحه اصلی</div>
+            <div class="ba-cols">
+              <div class="ba-before">
+                <span class="ba-label">✕ قبل</span>
+                <div class="ba-text">سرمایه‌گذاری هوشمند، مشارکت در آینده — آگاه کراد، سکوی تأمین مالی جمعی گروه آگاه است.</div>
+              </div>
+              <div class="ba-after">
+                <span class="ba-label">✓ بعد</span>
+                <div class="ba-text">با سرمایه‌ای کوچک، در کسب‌وکارهای واقعی شریک شوید — با پشتوانه گروه آگاه، از ۱۰۰ هزار تومان سرمایه‌گذاری کن؛ شفاف، امن و ساده.</div>
+              </div>
+            </div>
+            <div class="ba-reason">شعار قبلی انتزاعی بود. شعار جدید ارزش ملموس («سرمایه کوچک»، «کسب‌وکار واقعی») را منتقل می‌کند و اعتماد را با استناد به پشتوانه برند تقویت می‌کند.</div>
+          </div>
+
+          <div class="project-body">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-bottom:24px">
+  <img src="Assets/07.png" alt="داشبورد" style="width:100%;border-radius:8px;border:1px solid #EBEBEB">
+  <img src="Assets/08.png" alt="داشبورد2" style="width:100%;border-radius:8px;border:1px solid #EBEBEB">
+</div>
+          <div class="ba-block">
+            <div class="ba-title">داشبورد — واژگان</div>
+            <div class="ba-cols">
+              <div class="ba-before">
+                <span class="ba-label">✕ قبل</span>
+                <div class="ba-text">
+                  سرمایه گذاری ها<br>
+                  سوابق ورود<br>
+                  مبلغ تخمینی برگشتی
+                </div>
+              </div>
+              <div class="ba-after">
+                <span class="ba-label">✓ بعد</span>
+                <div class="ba-text">
+                  سرمایه‌گذاری‌های من<br>
+                  تاریخچه ورود<br>
+                  مبلغ تقریبی قابل دریافت
+                </div>
+              </div>
+            </div>
+            <div class="ba-reason">«سرمایه‌گذاری‌های من» حس مالکیت ایجاد می‌کند. «تاریخچه» آشناتر از «سوابق» است. «قابل دریافت» به جای «برگشتی» مثبت‌تر و دقیق‌تر است.</div>
+          </div>
+
+          <div class="project-body">
+  <img src="Assets/09.png" alt="خطا"
+       style="width:100%;border-radius:8px;
+              margin-bottom:24px;
+              border:1px solid #EBEBEB">
+          <div class="ba-block">
+            <div class="ba-title">پیام خطا — سقف سرمایه‌گذاری</div>
+            <div class="ba-cols">
+              <div class="ba-before">
+                <span class="ba-label">✕ قبل</span>
+                <div class="ba-text">مبلغ سرمایه‌گذاری بیش از حد مجاز است.</div>
+              </div>
+              <div class="ba-after">
+                <span class="ba-label">✓ بعد</span>
+                <div class="ba-text">حداکثر مبلغ سرمایه‌گذاری در این طرح ۵۰۰،۰۰۰ ریال است. لطفاً مبلغ را کاهش دهید.</div>
+              </div>
+            </div>
+            <div class="ba-reason">پیام خطای خوب سه کار می‌کند: می‌گوید چه اشتباهی شد، چقدر مجاز است، و چطور درست کنیم. پیام قبلی فقط مشکل را اعلام می‌کرد.</div>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">آموخته‌ها</div>
+          <div class="learnings">
+            <div class="learning-item">
+              <div class="learning-dot"></div>
+              <p>پژوهش کاربر فرضیات محتوایی را به تصمیم‌های مبتنی بر شواهد تبدیل می‌کند.</p>
+            </div>
+            <div class="learning-item">
+              <div class="learning-dot"></div>
+              <p>در محصولات مالی، وضوح و اعتماد مهم‌تر از خلاقیت کلامی هستند.</p>
+            </div>
+            <div class="learning-item">
+              <div class="learning-dot"></div>
+              <p>UX Writing می‌تواند بدون تغییر در قابلیت‌های محصول، تجربه تصمیم‌گیری کاربران را بهبود دهد.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-num">پروژه ۰۴</div>
+        <h2 class="project-title">مدیریت استراتژیک محتوای لینکدین سازمانی</h2>
+        <p class="project-desc">طراحی و اجرای استراتژی محتوایی صفحه لینکدین سازمان از تحلیل رقبا تا انتشار و گزارش‌گیری، همراه با تدقیق مخاطب هدف و تحلیل مستمر عملکرد برای بهینه‌سازی فرمت محتوا.</p>
+        <div class="project-tags">
+          <span class="project-tag">Content Strategy</span>
+          <span class="project-tag">Competitor Analysis</span>
+          <span class="project-tag">Copywriting</span>
+          <span class="project-tag">Content Design</span>
+          <span class="project-tag">Performance Analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-section">
+          <div class="project-section-title">چالش</div>
+          <p>با توجه به شرایط عمومی کشور در ماه‌های اخیر (جنگ و قطعی اینترنت)، فعالیت سازمان در شبکه‌های اجتماعی متوقف شده بود. با ثبات نسبی شرایط، تیم‌های مارکتینگ و منابع انسانی تصمیم گرفتند فعالیت را با در نظر گرفتن حساسیت‌های اجتماعی و سازمانی، به‌تدریج از سر بگیرند. این تصمیم فرصتی برای تدقیق مخاطب هدف و بازتعریف استراتژی محتوایی بود؛ محتوای پیشین عمدتاً توسعه‌دهندگان میدل‌لول را هدف قرار می‌داد، در حالی‌که هدف جدید، معرفی سازمان به‌عنوان یک شرکت فین‌تک با محوریت هوش مصنوعی (ترند غالب صنعت تکنولوژی) بود.</p>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">نقش من</div>
+          <ul class="role-list">
+            <li>تهیه گزارش تحلیل رقبا و بنچمارک صفحات مشابه</li>
+            <li>بازتعریف استراتژی محتوایی بر اساس مخاطب هدف اصلاح‌شده و هویت جدید سازمان</li>
+            <li>طراحی تقویم محتوایی و ایده‌پردازی پست‌ها با محوریت هوش مصنوعی</li>
+            <li>نگارش کپشن و طراحی گرافیکی (Adobe Illustrator / Photoshop)</li>
+            <li>انتشار مستقل محتوا و تحلیل ماهانه عملکرد برای بهینه‌سازی فرمت و موضوع</li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">خروجی</div>
+          <div class="output-box">
+            طی ژوئن تا سپتامبر ۲۰۲۶: انتشار ۱۴ پست با نرخ اینگیجمنت ۳۲.۱٪ (۱۸۴٪ بالاتر از میانگین رقبا)، رشد ۳۱۶٪ ایمپرشن، ۱۹.۴٪ بازدید صفحه و رشد فالوور به ۸,۰۹۸ نفر.
+          </div>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">نمونه پست‌ها</div>
+          <ul class="role-list">
+            <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7478358654396850176" target="_blank" rel="noopener">پیش‌بینی جام جهانی با AI</a></li>
+            <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7498298090467115008" target="_blank" rel="noopener">کاربرد مدل‌های AI مختلف</a></li>
+            <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7500809887526871040" target="_blank" rel="noopener">AI در صنعت مالی</a></li>
+          </ul>
+        </div>
+        <div class="project-section">
+          <div class="project-section-title">آموخته‌ها</div>
+          <ul class="role-list">
+            <li>پست‌های مناسبتی عملکرد ضعیف‌تری نسبت به محتوای کاربردی داشتند؛ محتوای عملی، به‌خصوص در فرمت کروسل، اینگیجمنت بالاتری ایجاد کرد.</li>
+            <li>با توجه به فضای عمومی حساس به تعدیل نیرو در کشور، فرمت پست ثابت (static) در حال حاضر بازخورد بهتری نسبت به فرمت‌های پرانرژی‌تر مانند ریلز دارد.</li>
+            <li>استراتژی محتوا باید همزمان با شرایط بیرونی (اجتماعی) و درونی (هویت سازمان) تنظیم شود، نه فقط بر اساس بهترین‌شیوه‌های عمومی شبکه‌های اجتماعی.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<footer>
+  <p>سمیرا محمدی — کارشناس ارشد محتوا و UX Writer</p>
+</footer>
+
+</body>
+</html>
